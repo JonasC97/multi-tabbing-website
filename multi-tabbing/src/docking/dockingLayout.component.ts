@@ -1,161 +1,195 @@
-import { Component, Inject, ViewChild, OnInit, AfterViewInit, Input } from '@angular/core';
-import GoldenLayout from 'golden-layout';
+import { ApplicationRef, Component, ComponentRef, ElementRef, EmbeddedViewRef, OnDestroy, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+  ComponentContainer, GoldenLayout,
+  LogicalZIndex,
+  ResolvedComponentItemConfig
+} from "golden-layout";
+import { BaseComponentDirective } from 'src/app/base-component.directive';
+import { TestComponent } from './dockingWidgets/test.component';
+
 import { DockingService } from './services/docking.service';
-import { GoldenLayoutComponent } from 'node_modules/ngx-golden-layout';
-import { of } from 'rxjs';
-import { DockingComponent } from './DockingComponent';
-import {ActivatedRoute} from '@angular/router';
-import {IDockingLayoutConfig} from './interfaces/IDockingLayoutConfig';
+
 
 @Component({
-  selector: 'app-docking',
-  template: `<div class="spawn-new"></div>
-  <golden-layout-root [layout]="layoutConfig$" (stateChanged)="layoutChanged($event)">
-  </golden-layout-root>`,
-})
-
-/**
- * A Component which represents the Golden Layout Container
- * It contains the golden-layout-root
- */
-export class DockingLayoutComponent implements  AfterViewInit, OnInit {
-
-  /**
-   * id the id of this DockingLayoutComponent.
-   * Can be passed through routing params.
-   */
-  @Input() id: string ;
-
-  /**
-   * layoutConfig the config file which describes the goldenlayout container configs (position...).
-   */
-  public layoutConfig: GoldenLayout.Config;
-
-  /**
-   * title the title of this DockingLayoutComponent.
-   * Can be passed through routing params.
-   */
-  // tslint:disable-next-line: no-inferrable-types
-  @Input() title: string = 'main';
-
-  /**
-   * goldenLayoutComponent the GoldenLayoutComponent in this DockingLayoutComponent
-   */
-  @ViewChild(GoldenLayoutComponent, { static: true })
-  goldenLayoutComponent: GoldenLayoutComponent;
-
-  /**
-   * Needed for GoldenLayout to assign [layout] in golden-layout-root
-   */
-  layoutConfig$;
-
-  constructor(private dockingService: DockingService, private activatedRoute: ActivatedRoute) {}
-
-  /**
-   * Add an empty DockingComponent to this goldenlayout
-   * Pass the DockingComponentId through componentState.
-   * So the DockingComponent can access the Id.
-   * The DockingComponent will load its IDockingComponentCofing on itself.
-   * @parm myId the Id of this DockingComponent.
-   * @parm myComponentName the name of this DockingComponent.
-   */
-  addComponent(myId: string, myComponentName: string): void {
-    this.goldenLayoutComponent.createNewComponent({
-        // componentName
-        componentName: myComponentName,
-        type: 'component',
-        // Title will be replaced ind DockingComponent
-        title: 'loading...',
-        // Set componentState with id
-        componentState : {id: myId}
-      });
-  }
-
-  // Deprecated: A way to initialize the DockingComponent
-  // Replaced by DataServices
-  /*
-  addComponent(myComponentConfig: IDockingComponentConfig): void {
-    this.createComponent(myComponentConfig).then((myId: string) => this.initComponent(this.getLastComponent(), myComponentConfig, myId));
-  }
-
-  createComponent(myComponentConfig: IDockingComponentConfig) {
-    const promise = new Promise((resolve, reject) => {
-      this.goldenLayoutComponent.createNewComponent({
-        componentName: myComponentConfig.componentName,
-        type: 'component',
-        title: myComponentConfig.title,
-        id: myComponentConfig.id,
-        componentState : {id: myComponentConfig.id, title: myComponentConfig.title}
-      });
-      resolve(myComponentConfig.id);
-    });
-    return promise;
-  }
-
-  initComponent(myComponent: DockingComponent, myComponentConfig: IDockingComponentConfig, myId: string): void {
-    myComponent.setId(myId);
-    myComponent.initInLayout(myComponentConfig);
-  }
-*/
-  /**
-   * Get Last added DockingComponent.
-   * @returns DockingComponent
-   */
-  getLastComponent(): DockingComponent {
-    return this.goldenLayoutComponent.openedComponents.slice(-1)[0];
-  }
-
-  /**
-   * get a DockingComponent in this layout by Id.
-   * @param myId Id of the DockingComponent.
-   * @returns the related DockingComponent in this layout.
-   */
-  getComponent(myId: string): DockingComponent {
-    for (const component of this.goldenLayoutComponent.openedComponents) {
-      if (component.getId() === myId) {
-        return component;
-      }
+  selector: 'app-golden-layout-host',
+  template: '<ng-template #componentViewContainer></ng-template>',
+  styles: [`
+    :host {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      position: relative;
     }
-    return null;
+    `,
+  ],
+})
+export class DockingLayoutComponent implements OnDestroy {
+  private _goldenLayout: GoldenLayout;
+  private _goldenLayoutElement: HTMLElement;
+  private _virtualActive = true;
+  private _viewContainerRefActive = false;
+  private _componentRefMap = new Map<ComponentContainer, ComponentRef<BaseComponentDirective>>();
+  private _goldenLayoutBoundingClientRect: DOMRect = new DOMRect();
+
+  private _goldenLayoutBindComponentEventListener =
+    (container: ComponentContainer, itemConfig: ResolvedComponentItemConfig) => this.handleBindComponentEvent(container, itemConfig);
+  private _goldenLayoutUnbindComponentEventListener =
+    (container: ComponentContainer) => this.handleUnbindComponentEvent(container);
+
+  @ViewChild('componentViewContainer', { read: ViewContainerRef, static: true }) private _componentViewContainerRef: ViewContainerRef;
+
+  get goldenLayout() { return this._goldenLayout; }
+  get virtualActive() { return this._virtualActive; }
+  get viewContainerRefActive() { return this._viewContainerRefActive; }
+  get isGoldenLayoutSubWindow() { return this._goldenLayout.isSubWindow; }
+
+  constructor(private _appRef: ApplicationRef,
+    private _elRef: ElementRef<HTMLElement>,
+    private dockingService: DockingService,
+  ) {
+    this._goldenLayoutElement = this._elRef.nativeElement;
+
+    this.dockingService.registerComponentType(TestComponent.componentTypeName, TestComponent);
+
   }
 
-  /**
-   * Save this DockingLayoutComponent in a descriptive IDockingLayoutConfig
-   * @returns IDockingLayoutConfig
-   */
-  saveDockingLayoutConfig(): void {
-    const myDockingConfig: IDockingLayoutConfig = {
-      id: this.id,
-      title: this.title,
-      layoutConfig:  this.goldenLayoutComponent.getSerializableState(),
-    };
-    this.dockingService.saveDockingLayoutConfig(myDockingConfig);
+  ngOnDestroy() {
+    this._goldenLayout.destroy();
   }
 
-  loadDockingLayoutConfig(myDockingLayoutConfig: IDockingLayoutConfig) {}
+  initialise() {
+    this._goldenLayout = new GoldenLayout(
+      this._goldenLayoutElement,
+      this._goldenLayoutBindComponentEventListener,
+      this._goldenLayoutUnbindComponentEventListener,
+    );
+    this._goldenLayout.resizeWithContainerAutomatically = true;
+    this._goldenLayout.beforeVirtualRectingEvent = (count) => this.handleBeforeVirtualRectingEvent(count);
 
-  ngOnInit(): void {
-     let myDockingLayoutConfig: IDockingLayoutConfig;
-     // check for title
-     if (this.activatedRoute.snapshot.queryParamMap.has('title')) {
-       // get the DockingLayoutConfig by calling the docking service with the parms we got through the routing call
-       myDockingLayoutConfig = this.dockingService.getDockingLayoutConfigByTitle(this.activatedRoute.snapshot.queryParamMap.get('title'));
-       // set attributes
-       this.layoutConfig = myDockingLayoutConfig.layoutConfig;
-       this.id = myDockingLayoutConfig.id;
-       this.title = myDockingLayoutConfig.title;
-     }
-     // set the layoutConfig$ for golden layout
-     this.layoutConfig$ = of(this.layoutConfig);
+    if (this._goldenLayout.isSubWindow) {
+      this._goldenLayout.checkAddDefaultPopinButton();
+    }
   }
 
-  ngAfterViewInit() {
-    // set the current dockingLayout in dockingService
-    this.dockingService.setCurrentDockingLayout(this);
+  setVirtualActive(value: boolean) {
+    this._goldenLayout.clear();
+    this._virtualActive = value;
+    if (!this._virtualActive) {
+      this._viewContainerRefActive = false;
+    }
   }
 
-  layoutChanged(evt: any): void {
-    console.log('Event Fired');
-    this.saveDockingLayoutConfig();
+  setViewContainerRefActive(value: boolean) {
+    this._goldenLayout.clear();
+    if (value && !this.virtualActive) {
+      throw new Error('ViewContainerRef active only possible if VirtualActive');
+    }
+    this._viewContainerRefActive = value;
+  }
+
+  setSize(width: number, height: number) {
+    this._goldenLayout.setSize(width, height)
+  }
+
+  getComponentRef(container: ComponentContainer) {
+    return this._componentRefMap.get(container);
+  }
+
+  private handleBindComponentEvent(container: ComponentContainer, itemConfig: ResolvedComponentItemConfig): ComponentContainer.BindableComponent {
+    const componentType = itemConfig.componentType;
+    const componentRef = this.dockingService.createComponent(componentType, container);
+    const component = componentRef.instance;
+
+    this._componentRefMap.set(container, componentRef);
+
+    if (this._virtualActive) {
+      container.virtualRectingRequiredEvent = (container, width, height) => this.handleContainerVirtualRectingRequiredEvent(container, width, height);
+      container.virtualVisibilityChangeRequiredEvent = (container, visible) => this.handleContainerVisibilityChangeRequiredEvent(container, visible);
+      container.virtualZIndexChangeRequiredEvent = (container, logicalZIndex, defaultZIndex) => this.handleContainerVirtualZIndexChangeRequiredEvent(container, logicalZIndex, defaultZIndex);
+
+      if (this._viewContainerRefActive) {
+        this._componentViewContainerRef.insert(componentRef.hostView);
+      } else {
+        this._appRef.attachView(componentRef.hostView);
+        const componentRootElement = component.rootHtmlElement;
+        this._goldenLayoutElement.appendChild(componentRootElement);
+      }
+    } else {
+      this._appRef.attachView(componentRef.hostView);
+      const domElem = (componentRef.hostView as EmbeddedViewRef<unknown>).rootNodes[0] as HTMLElement;
+      container.element.appendChild(domElem);
+    }
+
+    return {
+      component,
+      virtual: this._virtualActive,
+    }
+  }
+
+  private handleUnbindComponentEvent(container: ComponentContainer) {
+    const componentRef = this._componentRefMap.get(container);
+    if (componentRef === undefined) {
+      throw new Error('Could not unbind component. Container not found');
+    }
+    this._componentRefMap.delete(container);
+
+    const hostView = componentRef.hostView;
+
+    if (container.virtual) {
+      if (this._viewContainerRefActive) {
+        const viewRefIndex = this._componentViewContainerRef.indexOf(hostView);
+        if (viewRefIndex < 0) {
+          throw new Error('Could not unbind component. ViewRef not found');
+        }
+        this._componentViewContainerRef.remove(viewRefIndex);
+      } else {
+        const component = componentRef.instance;
+        const componentRootElement = component.rootHtmlElement;
+        this._goldenLayoutElement.removeChild(componentRootElement);
+        this._appRef.detachView(hostView);
+      }
+    } else {
+      const component = componentRef.instance;
+      const componentRootElement = component.rootHtmlElement;
+      container.element.removeChild(componentRootElement);
+      this._appRef.detachView(hostView);
+    }
+
+    componentRef.destroy();
+  }
+
+  private handleBeforeVirtualRectingEvent(count: number) {
+    this._goldenLayoutBoundingClientRect = this._goldenLayoutElement.getBoundingClientRect();
+  }
+
+  private handleContainerVirtualRectingRequiredEvent(container: ComponentContainer, width: number, height: number) {
+    const containerBoundingClientRect = container.element.getBoundingClientRect();
+    const left = containerBoundingClientRect.left - this._goldenLayoutBoundingClientRect.left;
+    const top = containerBoundingClientRect.top - this._goldenLayoutBoundingClientRect.top;
+
+    const componentRef = this._componentRefMap.get(container);
+    if (componentRef === undefined) {
+        throw new Error('handleContainerVirtualRectingRequiredEvent: ComponentRef not found');
+    }
+    const component = componentRef.instance;
+    component.setPositionAndSize(left, top, width, height);
+  }
+
+  private handleContainerVisibilityChangeRequiredEvent(container: ComponentContainer, visible: boolean) {
+    const componentRef = this._componentRefMap.get(container);
+    if (componentRef === undefined) {
+        throw new Error('handleContainerVisibilityChangeRequiredEvent: ComponentRef not found');
+    }
+    const component = componentRef.instance;
+    component.setVisibility(visible);
+  }
+
+  private handleContainerVirtualZIndexChangeRequiredEvent(container: ComponentContainer, logicalZIndex: LogicalZIndex, defaultZIndex: string) {
+    const componentRef = this._componentRefMap.get(container);
+    if (componentRef === undefined) {
+        throw new Error('handleContainerVirtualZIndexChangeRequiredEvent: ComponentRef not found');
+    }
+    const component = componentRef.instance;
+    component.setZIndex(defaultZIndex);
   }
 }

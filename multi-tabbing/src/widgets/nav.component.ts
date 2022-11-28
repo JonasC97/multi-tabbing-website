@@ -3,12 +3,10 @@ import { Router, ActivatedRoute, RouterOutlet } from '@angular/router';
 import { DockingService } from 'src/docking/services/docking.service';
 import { IDockingComponentConfig } from 'src/docking/interfaces/IDockingComponentConfig';
 import { LocalDataService } from 'src/dataServices/localData.service';
-import { ThrowStmt } from '@angular/compiler';
 @Component({
   selector: 'app-navigation',
   template: `<mat-toolbar color="primary">
             <mat-toolbar-row>
-            <span><a class="menu_links" (click)='showDashboard()'>Docking</a></span>
             <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.youtube.com/embed/-abgQPOGkG0')">YouTube</a></span>
             <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.wikipedia.org')">Wikipedia</a></span>
             <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.openstreetmap.de/karte/')">OSM</a></span>
@@ -18,7 +16,6 @@ import { ThrowStmt } from '@angular/compiler';
             <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.facebook.com')">Facebook</a></span>
             <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.google.de')">Google</a></span>
             <span style="margin-left:3em"><a class="menu_links" (click)="saveDockingLayout()" >Save Dockinglayout</a></span>
-            <span style="margin-left:3em"><a class="menu_links" (click)="showSettings()">Settings</a></span>
             </mat-toolbar-row>`,
   styles: [` a.menu_links {
             cursor: pointer;
@@ -59,7 +56,7 @@ export class NavComponent {
   }
 
   saveDockingLayout(): void {
-    this.dockingService.getCurrentDockingLayout().saveDockingLayoutConfig();
+    //this.dockingService.getCurrentDockingLayout().saveDockingLayoutConfig();
     this.testService.saveComponentConfigsToFile();
     this.testService.saveLayoutsConfigsToFile();
   }

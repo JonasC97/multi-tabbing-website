@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { ComponentFactoryResolver, Injectable, Injector, StaticProvider, Type } from '@angular/core';
 import { DockingLayoutComponent } from '../dockingLayout.component';
 import { IDockingLayoutConfig } from '../interfaces/IDockingLayoutConfig';
-import GoldenLayout from 'golden-layout';
+import GoldenLayout, { ComponentContainer, JsonValue } from 'golden-layout';
 import { ComponentConfigService } from './componentConfig.service';
 import { IDockingComponentConfig } from '../interfaces/IDockingComponentConfig';
 import { DataService } from '../../dataServices/data.service';
+import { BaseComponentDirective } from 'src/app/base-component.directive';
 
 
 @Injectable({
@@ -20,7 +21,39 @@ export class DockingService {
    */
   private currentdockingLayout: DockingLayoutComponent;
 
-  constructor( private componentConfigService: ComponentConfigService, private dataService: DataService) {
+  private _componentTypeMap = new Map<string, Type<BaseComponentDirective>>();
+
+  constructor( private componentConfigService: ComponentConfigService, private dataService: DataService, private componentFactoryResolver: ComponentFactoryResolver) {
+  }
+
+
+  registerComponentType(name: string, componentType: Type<BaseComponentDirective>) {
+    this._componentTypeMap.set(name, componentType);
+  }
+
+  
+  createComponent(componentTypeJsonValue: JsonValue, container: ComponentContainer) {
+    const componentType = this._componentTypeMap.get(componentTypeJsonValue as string);
+    if (componentType === undefined) {
+      throw new Error('Unknown component type')
+    } else {
+      const provider: StaticProvider = { provide: BaseComponentDirective.GoldenLayoutContainerInjectionToken, useValue: container };
+      const injector = Injector.create({
+        providers: [provider]
+      });
+      const componentFactoryRef = this.componentFactoryResolver.resolveComponentFactory<BaseComponentDirective>(componentType);
+      return componentFactoryRef.create(injector);
+    }
+  }
+
+  getRegisteredComponentTypeNames(): string[] {
+    const count = this._componentTypeMap.size;
+    const result = new Array<string>(count);
+    let idx = 0;
+    for (let [key, value] of this._componentTypeMap) {
+      result[idx++] = key;
+    }
+    return result;
   }
 
   /**
@@ -54,8 +87,8 @@ export class DockingService {
   /**
    * Get the current loaded DockingLayoutComponent.
    */
-  getCurrentDockingLayout(): DockingLayoutComponent {
-    return this.currentdockingLayout;
+  getCurrentDockingLayout(): any {
+    return this.currentdockingLayout.goldenLayout;
   }
 
   /**
@@ -77,7 +110,7 @@ export class DockingService {
     // async call to save data (step 1)
     this.dataService.saveIDockingComponentConfigAsync(myComponentConfig).then(
       // then addComponent in currentDockingLayout with the given id (step 2)
-      () => this.getCurrentDockingLayout().addComponent(myComponentConfig.id, myComponentConfig.componentName));
+      () => this.getCurrentDockingLayout().newComponent("Test",myComponentConfig,"test-Title"));//newComponent(myComponentConfig.id, myComponentConfig.componentName));
   }
   /**
    * Load a DockingComponent into the currentDockingLayout.
@@ -90,7 +123,10 @@ export class DockingService {
     if (myComponentName === 'NoName') {
       myComponentName = this.dataService.getIDockingComponentNameById(myId);
     }
-    this.getCurrentDockingLayout().addComponent(myId, myComponentName);
+    let state: any = {};
+    state.id = myId;
+    //this.getCurrentDockingLayout().addComponent(myId, myComponentName);
+    this.getCurrentDockingLayout().newComponent(myComponentName,state, "");
   }
 
 }

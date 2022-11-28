@@ -1,11 +1,9 @@
 import { Component, Input, Inject, Optional, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { DockingComponent } from 'src/docking/DockingComponent';
-import {
-  GoldenLayoutComponentState, GoldenLayoutContainer,
-  } from 'node_modules/ngx-golden-layout';
 import { IDockingComponentConfig } from 'src/docking/interfaces/IDockingComponentConfig';
 import { DataService } from 'src/dataServices/data.service';
-import GoldenLayout from 'golden-layout';
+import GoldenLayout, { ComponentContainer } from 'golden-layout';
+import { BaseComponentDirective } from 'src/app/base-component.directive';
 
 
 @Component({
@@ -44,18 +42,16 @@ export class TestComponent extends DockingComponent implements AfterViewInit {
         }
     };
 
-  constructor(
-    @Optional()@Inject(GoldenLayoutComponentState) private state: any,
-    @Optional()@Inject(GoldenLayoutContainer) private container: GoldenLayout.Container,
-    private dataService: DataService) {
-    super(state, container, dataService);
-    if ( this.state !== null) {
+    
+  constructor(protected dataService: DataService, @Inject(BaseComponentDirective.GoldenLayoutContainerInjectionToken) protected container: ComponentContainer, elRef: ElementRef) {
+    super(dataService,container, elRef.nativeElement);
+    if (this.container.state !== null) {
         // get IDockingComponentConfig by th given id in goldenlayout state
-        this.componentConfig = dataService.getIDockingComponentConfigById(this.state.id);
+        this.componentConfig = dataService.getIDockingComponentConfigById(container.state["id"].toString());
         // init
         this.initInLayout(this.componentConfig);
         // set title
-        this.container.setTitle(this.componentConfig.title);
+        //this.container.setTitle(this.componentConfig.title);
       }
     }
 
@@ -75,5 +71,9 @@ export class TestComponent extends DockingComponent implements AfterViewInit {
   getCurrentComponentConfig(): IDockingComponentConfig {
     return this.componentConfig;
     }
+}
 
+
+export namespace TestComponent {
+  export const componentTypeName = 'Test';
 }

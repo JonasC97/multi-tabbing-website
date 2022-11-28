@@ -126,7 +126,7 @@ export class DataService {
    * @return promise
    */
   saveIDockingComponentConfigAsync(myComponentConfig: IDockingComponentConfig): any {
-    const promise = new Promise((resolve, reject) => {
+    const promise = new Promise<void>((resolve, reject) => {
     const myComponentJSON = myComponentConfig;
     this.currentDataService.saveComponentConfigJson(myComponentJSON);
     resolve();

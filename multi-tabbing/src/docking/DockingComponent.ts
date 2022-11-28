@@ -1,14 +1,14 @@
 
-import { Inject, Optional } from '@angular/core';
-import { GoldenLayoutComponentState, GoldenLayoutContainer } from 'node_modules/ngx-golden-layout';
+import { ElementRef, Inject, Optional } from '@angular/core'; 
 import { IDockingComponentConfig } from './interfaces/IDockingComponentConfig';
 import { DataService } from '../dataServices/data.service';
-import GoldenLayout from 'golden-layout';
+import GoldenLayout, { ComponentContainer } from 'golden-layout';
+import { BaseComponentDirective } from 'src/app/base-component.directive';
 
 /**
  * An abstract class which represents a component that can be added to [[dockingLayout.component]].
  */
-export abstract class DockingComponent {
+export abstract class DockingComponent extends BaseComponentDirective {
 
 
   /** An [[IDockingComponentConfig]] that defines all attributes to add this component to the [[dockingLayout.component]].
@@ -31,9 +31,9 @@ export abstract class DockingComponent {
    *                    Optional because a DockingComponent dont have to be docked in goldenlayout.
    * @param myDataService DataService to get the IDockingComponentConfig from the given id.
    */
-  constructor(@Optional()@Inject(GoldenLayoutComponentState) private myState: any,
-              @Optional()@Inject(GoldenLayoutContainer) private myContainer: GoldenLayout.Container,
-              private myDataService: DataService) {}
+   constructor(protected myDataService: DataService, @Inject(BaseComponentDirective.GoldenLayoutContainerInjectionToken) protected container: ComponentContainer, elRef: ElementRef) {
+    super(elRef.nativeElement);
+  }
 
   /**
    * Abstract function:
@@ -75,7 +75,8 @@ export abstract class DockingComponent {
    * Getter for the state passed by goldenlayout.
    */
   getStateFromGoldenLayout(): any {
-    return this.myState;
+    //return this.myState;
   }
+
 
 }
