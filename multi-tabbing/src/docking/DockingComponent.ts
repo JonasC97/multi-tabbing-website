@@ -1,5 +1,5 @@
 
-import { ElementRef, Inject, Optional } from '@angular/core'; 
+import { ElementRef, Inject, InjectionToken, Optional } from '@angular/core'; 
 import { IDockingComponentConfig } from './interfaces/IDockingComponentConfig';
 import { DataService } from '../dataServices/data.service';
 import GoldenLayout, { ComponentContainer } from 'golden-layout';
@@ -8,9 +8,9 @@ import { BaseComponentDirective } from 'src/app/base-component.directive';
 /**
  * An abstract class which represents a component that can be added to [[dockingLayout.component]].
  */
-export abstract class DockingComponent extends BaseComponentDirective {
-
-
+export abstract class DockingComponent{
+  static componentTypeName;
+  public rootHtmlElement;
   /** An [[IDockingComponentConfig]] that defines all attributes to add this component to the [[dockingLayout.component]].
    * If you want to pass own attributes to your component add them to this componentConfig.componentData
    */
@@ -31,8 +31,8 @@ export abstract class DockingComponent extends BaseComponentDirective {
    *                    Optional because a DockingComponent dont have to be docked in goldenlayout.
    * @param myDataService DataService to get the IDockingComponentConfig from the given id.
    */
-   constructor(protected myDataService: DataService, @Inject(BaseComponentDirective.GoldenLayoutContainerInjectionToken) protected container: ComponentContainer, elRef: ElementRef) {
-    super(elRef.nativeElement);
+   constructor(protected myDataService: DataService, @Inject(DockingComponent.GoldenLayoutContainerInjectionToken) protected container: ComponentContainer, elRef: ElementRef) {
+    this.rootHtmlElement = elRef.nativeElement;
   }
 
   /**
@@ -78,5 +78,31 @@ export abstract class DockingComponent extends BaseComponentDirective {
     //return this.myState;
   }
 
+  setPositionAndSize(left: number, top: number, width: number, height: number) {
+    this.rootHtmlElement.style.left = this.numberToPixels(left);
+    this.rootHtmlElement.style.top = this.numberToPixels(top);
+    this.rootHtmlElement.style.width = this.numberToPixels(width);
+    this.rootHtmlElement.style.height = this.numberToPixels(height);
+} 
 
+setVisibility(visible: boolean) {
+    if (visible) {
+        this.rootHtmlElement.style.display = '';
+    } else {
+        this.rootHtmlElement.style.display = 'none';
+    }
+}
+
+setZIndex(value: string) {
+    this.rootHtmlElement.style.zIndex = value;
+}
+
+private numberToPixels(value: number): string {
+    return value.toString(10) + 'px';
+}
+}
+
+export namespace DockingComponent {
+  const GoldenLayoutContainerTokenName = 'GoldenLayoutContainer'; 
+  export const GoldenLayoutContainerInjectionToken = new InjectionToken<ComponentContainer>(GoldenLayoutContainerTokenName);
 }

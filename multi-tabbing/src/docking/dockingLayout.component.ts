@@ -1,11 +1,14 @@
-import { ApplicationRef, Component, ComponentRef, ElementRef, EmbeddedViewRef, OnDestroy, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ApplicationRef, Component, ComponentRef, ElementRef, EmbeddedViewRef, OnDestroy, ViewChild, ViewContainerRef } from '@angular/core';
 import {
   ComponentContainer, GoldenLayout,
   LogicalZIndex,
   ResolvedComponentItemConfig
 } from "golden-layout";
 import { BaseComponentDirective } from 'src/app/base-component.directive';
+import { DockingComponent } from './DockingComponent';
+import { EmptyComponent } from './dockingWidgets/empty.component';
 import { TestComponent } from './dockingWidgets/test.component';
+import { TestComponent2 } from './dockingWidgets/test2.component';
 
 import { DockingService } from './services/docking.service';
 
@@ -23,12 +26,12 @@ import { DockingService } from './services/docking.service';
     `,
   ],
 })
-export class DockingLayoutComponent implements OnDestroy {
+export class DockingLayoutComponent implements OnDestroy, AfterViewInit {
   private _goldenLayout: GoldenLayout;
   private _goldenLayoutElement: HTMLElement;
   private _virtualActive = true;
   private _viewContainerRefActive = false;
-  private _componentRefMap = new Map<ComponentContainer, ComponentRef<BaseComponentDirective>>();
+  private _componentRefMap = new Map<ComponentContainer, ComponentRef<DockingComponent>>();
   private _goldenLayoutBoundingClientRect: DOMRect = new DOMRect();
 
   private _goldenLayoutBindComponentEventListener =
@@ -48,8 +51,9 @@ export class DockingLayoutComponent implements OnDestroy {
     private dockingService: DockingService,
   ) {
     this._goldenLayoutElement = this._elRef.nativeElement;
-
-    this.dockingService.registerComponentType(TestComponent.componentTypeName, TestComponent);
+    this.dockingService.registerComponentType("test", TestComponent);
+    this.dockingService.registerComponentType("test2", TestComponent2);
+    this.dockingService.registerComponentType(EmptyComponent.componentTypeName, EmptyComponent);
 
   }
 
@@ -191,5 +195,13 @@ export class DockingLayoutComponent implements OnDestroy {
     }
     const component = componentRef.instance;
     component.setZIndex(defaultZIndex);
+  }
+
+  ngAfterViewInit(): void {
+    this._goldenLayout.on('__all',() => {
+      console.log("gl event")
+    }
+    )
+
   }
 }

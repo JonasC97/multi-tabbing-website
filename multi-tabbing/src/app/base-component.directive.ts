@@ -5,6 +5,7 @@ import {
   
 @Directive()
 export abstract class BaseComponentDirective {
+    static componentTypeName;
     constructor(public rootHtmlElement: HTMLElement) {
 
     }

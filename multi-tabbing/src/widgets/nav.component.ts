@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, RouterOutlet } from '@angular/router';
 import { DockingService } from 'src/docking/services/docking.service';
 import { IDockingComponentConfig } from 'src/docking/interfaces/IDockingComponentConfig';
 import { LocalDataService } from 'src/dataServices/localData.service';
+import { LayoutConfig } from 'golden-layout';
 @Component({
   selector: 'app-navigation',
   template: `<mat-toolbar color="primary">
@@ -51,14 +52,27 @@ export class NavComponent {
     this.dockingService.createComponentInCurrentDockingLayout(testComponentConfig);
   }
 
+  addEmptyTab(): void {
+    const testComponentConfig: IDockingComponentConfig = {
+      id: '0',
+      componentName: 'empty',
+      title: 'my Tab',
+      componentData: {
+      }
+    };
+    this.dockingService.createComponentInCurrentDockingLayout(testComponentConfig);
+  }
+
   openTab(): void {
     this.dockingService.loadComponentInCurrentDockingLayout('4711', 'test');
   }
 
   saveDockingLayout(): void {
     //this.dockingService.getCurrentDockingLayout().saveDockingLayoutConfig();
-    this.testService.saveComponentConfigsToFile();
-    this.testService.saveLayoutsConfigsToFile();
+    // this.testService.saveComponentConfigsToFile();
+    // this.testService.saveLayoutsConfigsToFile();
+    let layout = LayoutConfig.fromResolved(this.dockingService.getCurrentDockingLayout().saveLayout());
+    this.dockingService.getCurrentDockingLayout().loadLayout(layout);
   }
 
 }

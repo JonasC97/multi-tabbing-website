@@ -4,10 +4,11 @@ import { IDockingComponentConfig } from 'src/docking/interfaces/IDockingComponen
 import { DataService } from 'src/dataServices/data.service';
 import GoldenLayout, { ComponentContainer } from 'golden-layout';
 import { BaseComponentDirective } from 'src/app/base-component.directive';
+import { TestComponent } from './test.component';
 
 
 @Component({
-  selector: 'app-test',
+  selector: 'app-test2',
   template: `
   <!--mat-form-field class="example-full-width">
     <mat-label>Enter a Value</mat-label>
@@ -18,14 +19,13 @@ import { BaseComponentDirective } from 'src/app/base-component.directive';
     <iframe #iframe height="100%" width="100%"  [attr.disabled]="isDisabled"></iframe>
   </div>`
 })
+
 /**
  * TestComponent to show functionality.
  * Extends DcokingComponent so it can be docked in DockingLayoutComponnet.
  */
-export class TestComponent extends DockingComponent  implements AfterViewInit {
-
+export class TestComponent2 extends TestComponent  implements AfterViewInit {
   isDisabled = true;
-
 
   @ViewChild("iframe", { static: false })
   iframe: ElementRef;
@@ -46,8 +46,8 @@ export class TestComponent extends DockingComponent  implements AfterViewInit {
 
     
   constructor(protected dataService: DataService, @Inject(DockingComponent.GoldenLayoutContainerInjectionToken) protected container: ComponentContainer, elRef: ElementRef) {
-    super(dataService,container, elRef);
-
+    super(dataService, container, elRef);
+    TestComponent2.componentTypeName = 'test2';
     if (this.container.state !== null) {
         // get IDockingComponentConfig by th given id in goldenlayout state
         this.componentConfig = dataService.getIDockingComponentConfigById(container.state["id"].toString());
@@ -91,6 +91,6 @@ export class TestComponent extends DockingComponent  implements AfterViewInit {
 }
 
 
-// export namespace TestComponent {
-//   export const componentTypeName = 'Test';
+// export namespace TestComponent2 {
+//   export const componentTypeName = 'Test2';
 // }

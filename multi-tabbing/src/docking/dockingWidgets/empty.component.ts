@@ -7,28 +7,24 @@ import { BaseComponentDirective } from 'src/app/base-component.directive';
 
 
 @Component({
-  selector: 'app-test',
+  selector: 'app-empty',
   template: `
   <!--mat-form-field class="example-full-width">
     <mat-label>Enter a Value</mat-label>
     <input matInput placeholder="Some Value" [(ngModel)]='componentConfig.componentData.myValue'
       [value]= 'componentConfig.componentData.myValue'>
   </mat-form-field-->
-  <div style="height: 100%; width: 100%">
-    <iframe #iframe height="100%" width="100%"  [attr.disabled]="isDisabled"></iframe>
-  </div>`
+  <div style=" overflow: hidden; width: 100%; height: 100%">
+  <img src='https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' style="position: relative; left: 50%; top: 50%; transform: translate(-50%, -50%)"/>
+</div>
+  `
 })
+
 /**
  * TestComponent to show functionality.
  * Extends DcokingComponent so it can be docked in DockingLayoutComponnet.
  */
-export class TestComponent extends DockingComponent  implements AfterViewInit {
-
-  isDisabled = true;
-
-
-  @ViewChild("iframe", { static: false })
-  iframe: ElementRef;
+export class EmptyComponent extends DockingComponent implements AfterViewInit {
 
   /**
    * Default initialization.
@@ -45,9 +41,8 @@ export class TestComponent extends DockingComponent  implements AfterViewInit {
     };
 
     
-  constructor(protected dataService: DataService, @Inject(DockingComponent.GoldenLayoutContainerInjectionToken) protected container: ComponentContainer, elRef: ElementRef) {
-    super(dataService,container, elRef);
-
+  constructor(protected dataService: DataService, @Inject(BaseComponentDirective.GoldenLayoutContainerInjectionToken) protected container: ComponentContainer, elRef: ElementRef) {
+    super(dataService,container, elRef.nativeElement);
     if (this.container.state !== null) {
         // get IDockingComponentConfig by th given id in goldenlayout state
         this.componentConfig = dataService.getIDockingComponentConfigById(container.state["id"].toString());
@@ -63,25 +58,9 @@ export class TestComponent extends DockingComponent  implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.iframe.nativeElement)
-    console.log(this.iframe)
-    this.iframe.nativeElement.src = this.componentConfig.componentData.myValue
-    this.container.on('__all', () => {
-      const elements = document.querySelectorAll('.lm_drag_handle');
-      for (let i = 0; i < elements.length; i++) {
-        const element = elements[i];
-        // do something with the element
-        element.addEventListener('mouseover', (event) => {
-          // your code here
-          console.log("hover über drag handle")
-          this.iframe.nativeElement.src = null;
-        });
-      }
-    });
 
-    this.container.on('resize', () => {
-      this.iframe.nativeElement.src = this.componentConfig.componentData.myValue;
-    });
+    // this.iframe.nativeElement.style.width = this.container.width + "px";
+    // this.iframe.nativeElement.style.height = this.container.height + "px";
 
   }
 
@@ -91,6 +70,6 @@ export class TestComponent extends DockingComponent  implements AfterViewInit {
 }
 
 
-// export namespace TestComponent {
-//   export const componentTypeName = 'Test';
-// }
+export namespace EmptyComponent {
+  export const componentTypeName = 'Empty';
+}

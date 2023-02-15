@@ -17,6 +17,8 @@ import { appRoutes } from './routes';
 import { TestComponent } from 'src/docking/dockingWidgets/test.component';
 import { from } from 'rxjs';
 import { DockingService } from 'src/docking/services/docking.service';
+import { EmptyComponent } from 'src/docking/dockingWidgets/empty.component';
+import { TestComponent2 } from 'src/docking/dockingWidgets/test2.component';
 
 // It is required to have JQuery as global in the window object.
 window['$'] = $;
@@ -28,7 +30,9 @@ const COMPONENTS = [
   AppComponent,
   NavComponent,
   TestComponent,
-  DockingLayoutComponent
+  TestComponent2,
+  DockingLayoutComponent,
+  EmptyComponent
 ];
 
 /**

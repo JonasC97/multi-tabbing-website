@@ -6,6 +6,7 @@ import { ComponentConfigService } from './componentConfig.service';
 import { IDockingComponentConfig } from '../interfaces/IDockingComponentConfig';
 import { DataService } from '../../dataServices/data.service';
 import { BaseComponentDirective } from 'src/app/base-component.directive';
+import { DockingComponent } from '../DockingComponent';
 
 
 @Injectable({
@@ -21,27 +22,30 @@ export class DockingService {
    */
   private currentdockingLayout: DockingLayoutComponent;
 
-  private _componentTypeMap = new Map<string, Type<BaseComponentDirective>>();
+  private _componentTypeMap = new Map<string, Type<DockingComponent>>();
 
   constructor( private componentConfigService: ComponentConfigService, private dataService: DataService, private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
 
-  registerComponentType(name: string, componentType: Type<BaseComponentDirective>) {
+  registerComponentType(name: string, componentType: Type<DockingComponent>) {
     this._componentTypeMap.set(name, componentType);
+    console.log(this._componentTypeMap);
   }
 
   
   createComponent(componentTypeJsonValue: JsonValue, container: ComponentContainer) {
+    console.log(componentTypeJsonValue)
+    console.log(this._componentTypeMap);
     const componentType = this._componentTypeMap.get(componentTypeJsonValue as string);
     if (componentType === undefined) {
       throw new Error('Unknown component type')
     } else {
-      const provider: StaticProvider = { provide: BaseComponentDirective.GoldenLayoutContainerInjectionToken, useValue: container };
+      const provider: StaticProvider = { provide: DockingComponent.GoldenLayoutContainerInjectionToken, useValue: container };
       const injector = Injector.create({
         providers: [provider]
       });
-      const componentFactoryRef = this.componentFactoryResolver.resolveComponentFactory<BaseComponentDirective>(componentType);
+      const componentFactoryRef = this.componentFactoryResolver.resolveComponentFactory<DockingComponent>(componentType);
       return componentFactoryRef.create(injector);
     }
   }
@@ -110,7 +114,7 @@ export class DockingService {
     // async call to save data (step 1)
     this.dataService.saveIDockingComponentConfigAsync(myComponentConfig).then(
       // then addComponent in currentDockingLayout with the given id (step 2)
-      () => this.getCurrentDockingLayout().newComponent("Test",myComponentConfig,"test-Title"));//newComponent(myComponentConfig.id, myComponentConfig.componentName));
+      () => this.getCurrentDockingLayout().newComponent("test",myComponentConfig,"test-Title"));//newComponent(myComponentConfig.id, myComponentConfig.componentName));
   }
   /**
    * Load a DockingComponent into the currentDockingLayout.
