@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, RouterOutlet } from '@angular/router';
 import { DockingService } from 'src/docking/services/docking.service';
 import { IDockingComponentConfig } from 'src/docking/interfaces/IDockingComponentConfig';
 import { LocalDataService } from 'src/dataServices/localData.service';
-import { LayoutConfig } from 'golden-layout';
+import { LayoutConfig, ResolvedLayoutConfig } from 'golden-layout';
 @Component({
   selector: 'app-navigation',
   template: `<mat-toolbar color="primary">
@@ -23,10 +23,124 @@ import { LayoutConfig } from 'golden-layout';
           }`]
 })
 
+
 /**
  * Only mockup
  */
 export class NavComponent {
+
+  private example ={
+    "root": {
+        "type": "row",
+        "content": [
+            {
+                "type": "stack",
+                "content": [
+                    {
+                        "type": "component",
+                        "content": [],
+                        "size": 1,
+                        "sizeUnit": "fr",
+                        "minSizeUnit": "px",
+                        "id": "",
+                        "maximised": false,
+                        "isClosable": true,
+                        "reorderEnabled": true,
+                        "title": "test-Title",
+                        "componentType": "test",
+                        "componentState": {
+                            "id": "a7016cf2-c776-61e6-aaf4-c4c11286bf22",
+                            "componentName": "test",
+                            "title": "my Tab",
+                            "componentData": {
+                                "myValue": "https://www.openstreetmap.de/karte/"
+                            }
+                        }
+                    }
+                ],
+                "size": 50,
+                "sizeUnit": "%",
+                "minSizeUnit": "px",
+                "id": "",
+                "isClosable": true,
+                "maximised": false,
+                "activeItemIndex": 0
+            },
+            {
+                "type": "stack",
+                "content": [
+                    {
+                        "type": "component",
+                        "content": [],
+                        "size": 1,
+                        "sizeUnit": "fr",
+                        "minSizeUnit": "px",
+                        "id": "",
+                        "maximised": false,
+                        "isClosable": true,
+                        "reorderEnabled": true,
+                        "title": "test-Title",
+                        "componentType": "test",
+                        "componentState": {
+                            "id": "a89de9b1-9432-f338-c113-1c36ba31a2a6",
+                            "componentName": "test",
+                            "title": "my Tab",
+                            "componentData": {
+                                "myValue": "https://www.openstreetmap.de/karte/"
+                            }
+                        }
+                    }
+                ],
+                "size": 50,
+                "sizeUnit": "%",
+                "minSizeUnit": "px",
+                "id": "",
+                "isClosable": true,
+                "maximised": false,
+                "activeItemIndex": 0
+            }
+        ],
+        "size": 1,
+        "sizeUnit": "fr",
+        "minSizeUnit": "px",
+        "id": "",
+        "isClosable": true
+    },
+    "openPopouts": [],
+    "settings": {
+        "constrainDragToContainer": true,
+        "reorderEnabled": true,
+        "popoutWholeStack": false,
+        "blockedPopoutsThrowError": true,
+        "closePopoutsOnUnload": true,
+        "responsiveMode": "none",
+        "tabOverlapAllowance": 0,
+        "reorderOnTabMenuClick": true,
+        "tabControlOffset": 10,
+        "popInOnClose": false
+    },
+    "dimensions": {
+        "borderWidth": 5,
+        "borderGrabWidth": 5,
+        "defaultMinItemHeight": 0,
+        "defaultMinItemHeightUnit": "px",
+        "defaultMinItemWidth": 10,
+        "defaultMinItemWidthUnit": "px",
+        "headerHeight": 20,
+        "dragProxyWidth": 300,
+        "dragProxyHeight": 200
+    },
+    "header": {
+        "show": "top",
+        "popout": "open in new window",
+        "dock": "dock",
+        "close": "close",
+        "maximise": "maximise",
+        "minimise": "minimise",
+        "tabDropdown": "additional tabs"
+    },
+    "resolved": true
+  }
 
   constructor(private router: Router, private dockingService: DockingService, private testService: LocalDataService) {
 
@@ -71,8 +185,13 @@ export class NavComponent {
     //this.dockingService.getCurrentDockingLayout().saveDockingLayoutConfig();
     // this.testService.saveComponentConfigsToFile();
     // this.testService.saveLayoutsConfigsToFile();
-    let layout = LayoutConfig.fromResolved(this.dockingService.getCurrentDockingLayout().saveLayout());
+    //let layout = LayoutConfig.fromResolved(this.dockingService.getCurrentDockingLayout().saveLayout());
+    let layout = this.dockingService.getCurrentDockingLayout().saveLayout();
+    console.log(layout)
+    layout = LayoutConfig.fromResolved(this.example as ResolvedLayoutConfig);
     this.dockingService.getCurrentDockingLayout().loadLayout(layout);
+    //console.log(layout.saveLayout());
+    //this.dockingService.getCurrentDockingLayout().loadLayout(layout);
   }
 
 }

@@ -47,7 +47,7 @@ export class TestComponent extends DockingComponent  implements AfterViewInit {
     
   constructor(protected dataService: DataService, @Inject(DockingComponent.GoldenLayoutContainerInjectionToken) protected container: ComponentContainer, elRef: ElementRef) {
     super(dataService,container, elRef);
-
+    console.log(this.container);
     if (this.container.state !== null) {
         // get IDockingComponentConfig by th given id in goldenlayout state
         this.componentConfig = dataService.getIDockingComponentConfigById(container.state["id"].toString());
@@ -63,8 +63,7 @@ export class TestComponent extends DockingComponent  implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.iframe.nativeElement)
-    console.log(this.iframe)
+    console.log(this.componentConfig);
     this.iframe.nativeElement.src = this.componentConfig.componentData.myValue
     this.container.on('__all', () => {
       const elements = document.querySelectorAll('.lm_drag_handle');
