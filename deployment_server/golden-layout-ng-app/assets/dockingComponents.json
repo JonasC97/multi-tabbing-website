@@ -1,0 +1,44 @@
+[
+    { 
+        "id":"4711",
+        "componentName":"test",
+        "title":"4711 Tab",
+        "componentData":{
+            "myValue":"https://www.wikipedia.org"
+        }
+    },
+    {
+        "id":"f07067a6-1673-2ff7-0c92-b19d5279fcdc",
+        "componentName":"test",
+        "title":"my Tab","componentData":
+        {
+            "myValue":"https://www.youtube.com/embed/-abgQPOGkG0"
+        }
+    },
+    {
+        "id":"tjuioya6-8673-iff7-dc9h-sd9d5272tcdf",
+        "componentName":"test",
+        "title":"my Tab",
+        "componentData":
+        {
+            "myValue":"https://www.hochschule-ruhr-west.de/"
+        }
+    },
+    {
+        "id": "a89de9b1-9432-f338-c113-1c36ba31a2a6",
+        "componentName": "test",
+        "title": "my Tab",
+        "componentData": {
+            "myValue": "https://www.openstreetmap.de/karte/"
+        }
+    },
+    {
+        "id": "a7016cf2-c776-61e6-aaf4-c4c11286bf22",
+        "componentName": "test",
+        "title": "my Tab",
+        "componentData": {
+            "myValue": "https://www.openstreetmap.de/karte/"
+        }
+    }
+
+]
