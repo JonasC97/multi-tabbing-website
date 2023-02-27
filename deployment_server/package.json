@@ -1,0 +1,22 @@
+{
+  "name": "deployment_server",
+  "version": "1.0.0",
+  "description": "express server to deploy the gui",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "pkg": {
+    "assets": "gui_app/**/*"
+  },
+  "author": "fluxatron softec",
+  "license": "ISC",
+  "dependencies": {
+    "@types/compression": "^1.7.2",
+    "cldr-data": "^36.0.1",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.6",
+    "express": "^4.18.1"
+  }
+}
