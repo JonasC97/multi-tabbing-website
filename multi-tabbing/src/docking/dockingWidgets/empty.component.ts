@@ -21,7 +21,7 @@ import { BaseComponentDirective } from 'src/app/base-component.directive';
 })
 
 /**
- * TestComponent to show functionality.
+ * TestComponent to show functionality. sync
  * Extends DcokingComponent so it can be docked in DockingLayoutComponnet.
  */
 export class EmptyComponent extends DockingComponent implements AfterViewInit {
