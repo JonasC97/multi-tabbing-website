@@ -1,14 +1,17 @@
 import { AfterViewInit, ApplicationRef, Component, ComponentRef, ElementRef, EmbeddedViewRef, OnDestroy, ViewChild, ViewContainerRef } from '@angular/core';
 import {
   ComponentContainer, GoldenLayout,
+  LayoutConfig,
   LogicalZIndex,
-  ResolvedComponentItemConfig
+  ResolvedComponentItemConfig,
+  ResolvedLayoutConfig
 } from "golden-layout";
 import { BaseComponentDirective } from 'src/app/base-component.directive';
 import { DockingComponent } from './DockingComponent';
 import { EmptyComponent } from './dockingWidgets/empty.component';
 import { TestComponent } from './dockingWidgets/test.component';
 import { TestComponent2 } from './dockingWidgets/test2.component';
+import { VideoComponent } from './dockingWidgets/video.component';
 
 import { DockingService } from './services/docking.service';
 
@@ -27,6 +30,7 @@ import { DockingService } from './services/docking.service';
   ],
 })
 export class DockingLayoutComponent implements OnDestroy, AfterViewInit {
+  
   private _goldenLayout: GoldenLayout;
   private _goldenLayoutElement: HTMLElement;
   private _virtualActive = true;
@@ -53,7 +57,9 @@ export class DockingLayoutComponent implements OnDestroy, AfterViewInit {
     this._goldenLayoutElement = this._elRef.nativeElement;
     this.dockingService.registerComponentType("test", TestComponent);
     this.dockingService.registerComponentType("test2", TestComponent2);
-    this.dockingService.registerComponentType(EmptyComponent.componentTypeName, EmptyComponent);
+    this.dockingService.registerComponentType("Empty", EmptyComponent);
+
+    this.dockingService.registerComponentType("vid", VideoComponent);
 
   }
 
@@ -198,10 +204,5 @@ export class DockingLayoutComponent implements OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this._goldenLayout.on('__all',() => {
-      console.log("gl event")
-    }
-    )
-
   }
 }

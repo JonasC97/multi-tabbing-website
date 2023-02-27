@@ -6,18 +6,7 @@ import { LocalDataService } from 'src/dataServices/localData.service';
 import { LayoutConfig, ResolvedLayoutConfig } from 'golden-layout';
 @Component({
   selector: 'app-navigation',
-  template: `<mat-toolbar color="primary">
-            <mat-toolbar-row>
-            <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.youtube.com/embed/-abgQPOGkG0')">YouTube</a></span>
-            <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.wikipedia.org')">Wikipedia</a></span>
-            <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.openstreetmap.de/karte/')">OSM</a></span>
-            <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.hs-ruhrwest.de')">HRW</a></span>            
-            <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://golden-layout.com/')">GoldenLayout</a></span>            
-          
-            <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.facebook.com')">Facebook</a></span>
-            <span style="margin-left:3em"><a class="menu_links" (click)="addTab('https://www.google.de')">Google</a></span>
-            <span style="margin-left:3em"><a class="menu_links" (click)="saveDockingLayout()" >Save Dockinglayout</a></span>
-            </mat-toolbar-row>`,
+  template: ``,
   styles: [` a.menu_links {
             cursor: pointer;
           }`]

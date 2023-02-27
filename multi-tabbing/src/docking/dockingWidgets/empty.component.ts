@@ -70,6 +70,6 @@ export class EmptyComponent extends DockingComponent implements AfterViewInit {
 }
 
 
-export namespace EmptyComponent {
-  export const componentTypeName = 'Empty';
-}
+// export namespace EmptyComponent {
+//   export const componentTypeName = 'Empty';
+// }

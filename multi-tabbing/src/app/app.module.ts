@@ -19,6 +19,12 @@ import { from } from 'rxjs';
 import { DockingService } from 'src/docking/services/docking.service';
 import { EmptyComponent } from 'src/docking/dockingWidgets/empty.component';
 import { TestComponent2 } from 'src/docking/dockingWidgets/test2.component';
+import { VideoComponent } from 'src/docking/dockingWidgets/video.component';
+
+// import {VgCoreModule} from '@videogular/ngx-videogular/core';
+// import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+// import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+// import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 
 // It is required to have JQuery as global in the window object.
 window['$'] = $;
@@ -32,7 +38,8 @@ const COMPONENTS = [
   TestComponent,
   TestComponent2,
   DockingLayoutComponent,
-  EmptyComponent
+  EmptyComponent,
+  VideoComponent
 ];
 
 /**
@@ -61,6 +68,10 @@ const COMPONENTS = [
     MatInputModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
+    // VgCoreModule,
+    // VgControlsModule,
+    // VgOverlayPlayModule,
+    // VgBufferingModule
   ],
   exports: [ COMPONENTS],
   providers: [DockingService],

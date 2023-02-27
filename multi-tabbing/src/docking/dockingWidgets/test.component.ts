@@ -55,6 +55,7 @@ export class TestComponent extends DockingComponent  implements AfterViewInit {
     if (this.container.state !== null) {
         // get IDockingComponentConfig by th given id in goldenlayout state
         this.componentConfig = dataService.getIDockingComponentConfigById(container.state["id"].toString());
+        this.container.setTitle(this.componentConfig.title);
         // init
         this.initInLayout(this.componentConfig);
         // set title
