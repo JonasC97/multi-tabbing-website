@@ -21,10 +21,10 @@ import { EmptyComponent } from 'src/docking/dockingWidgets/empty.component';
 import { TestComponent2 } from 'src/docking/dockingWidgets/test2.component';
 import { VideoComponent } from 'src/docking/dockingWidgets/video.component';
 
-// import {VgCoreModule} from '@videogular/ngx-videogular/core';
-// import {VgControlsModule} from '@videogular/ngx-videogular/controls';
-// import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
-// import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import { StartDialog } from './StartDialog.component';
+
 
 // It is required to have JQuery as global in the window object.
 window['$'] = $;
@@ -39,7 +39,8 @@ const COMPONENTS = [
   TestComponent2,
   DockingLayoutComponent,
   EmptyComponent,
-  VideoComponent
+  VideoComponent,
+  StartDialog
 ];
 
 /**
@@ -66,6 +67,7 @@ const COMPONENTS = [
     MatToolbarModule,
     MatProgressSpinnerModule,
     MatInputModule,
+    MatDialogModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
     // VgCoreModule,
