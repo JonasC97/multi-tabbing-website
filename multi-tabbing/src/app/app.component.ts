@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { LayoutConfig, ResolvedLayoutConfig } from 'golden-layout';
 import { DockingLayoutComponent } from 'src/docking/dockingLayout.component';
 import { DockingService } from 'src/docking/services/docking.service';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { StartDialog } from './StartDialog.component';
 
 @Component({
@@ -15,8 +15,7 @@ export class AppComponent  implements AfterViewInit {
 
   @ViewChild('goldenLayoutHost') private _goldenLayoutHostComponent: DockingLayoutComponent; 
 
-constructor(private dockingService: DockingService,public dialog: MatDialog) {
-    this.openDialog();
+constructor(private dockingService: DockingService, private dialog: MatDialog) {
 }
 private example = {
   "root": {
@@ -248,6 +247,8 @@ private example = {
 
 
   ngAfterViewInit() {
+    this.openDialog();
+
     setTimeout(() => {
       this._goldenLayoutHostComponent.initialise();
       this._goldenLayoutHostComponent.setVirtualActive(false);
