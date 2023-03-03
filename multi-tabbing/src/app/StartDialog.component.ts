@@ -3,7 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {MatDialogModule} from '@angular/material/dialog';
 
 /**
- * @title Dialog with header, scrollable content and actions
+ * @title Dialog with header, scrollable content and actions ---
  */
 @Component({
   selector: 'dialog',
