@@ -79,6 +79,8 @@ export class DockingLayoutComponent implements OnDestroy, AfterViewInit {
     if (this._goldenLayout.isSubWindow) {
       this._goldenLayout.checkAddDefaultPopinButton();
     }
+
+    console.log(this._goldenLayout.layoutConfig.settings);
   }
 
   setVirtualActive(value: boolean) {

@@ -8,6 +8,10 @@
   overflow: hidden;
   position: relative;
 }
+
+.lm_popout { display: none; }
+.lm_close { display: none; }
+.lm_close_tab { display: none; }
 .lm_dragging,
 .lm_dragging * {
   cursor: move !important;

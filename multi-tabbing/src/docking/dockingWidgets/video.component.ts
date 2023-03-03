@@ -74,6 +74,8 @@ public src;
   initInLayout(myComponentConfig: IDockingComponentConfig): void {
      this.componentConfig = myComponentConfig;
      this.src = this.componentConfig.componentData.myValue
+
+     console.log(this.container)//.controlsContainer.find( '.lm_popout').hide();
   }
 
   mouseDown: boolean = false;
