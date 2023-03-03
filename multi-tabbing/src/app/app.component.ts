@@ -2,6 +2,8 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { LayoutConfig, ResolvedLayoutConfig } from 'golden-layout';
 import { DockingLayoutComponent } from 'src/docking/dockingLayout.component';
 import { DockingService } from 'src/docking/services/docking.service';
+import {MatDialog} from '@angular/material/dialog';
+import { StartDialog } from './StartDialog.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,9 @@ export class AppComponent  implements AfterViewInit {
 
   @ViewChild('goldenLayoutHost') private _goldenLayoutHostComponent: DockingLayoutComponent; 
 
-constructor(private dockingService: DockingService) {}
+constructor(private dockingService: DockingService,public dialog: MatDialog) {
+    this.openDialog();
+}
 private example = {
   "root": {
       "type": "row",
@@ -251,8 +255,14 @@ private example = {
       let layout;
       layout = LayoutConfig.fromResolved(this.example as ResolvedLayoutConfig);
       this.dockingService.getCurrentDockingLayout().loadLayout(layout);
-      this.dockingService
-  
+      this.dockingService;  
     }, 0);
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(StartDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
