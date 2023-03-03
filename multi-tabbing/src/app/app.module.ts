@@ -25,7 +25,6 @@ import { VideoComponent } from 'src/docking/dockingWidgets/video.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { StartDialog } from './StartDialog.component';
 
-
 // It is required to have JQuery as global in the window object.
 window['$'] = $;
 

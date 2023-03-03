@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "css/goldenlayout-base.css";
 @import "css/themes/goldenlayout-dark-theme.css";
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 html, body { height: 95%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
