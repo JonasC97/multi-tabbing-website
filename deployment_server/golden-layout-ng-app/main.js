@@ -1,6 +1,60 @@
 "use strict";
 (self["webpackChunkgolden_layout_ng_app"] = self["webpackChunkgolden_layout_ng_app"] || []).push([["main"],{
 
+/***/ 9550:
+/*!******************************************!*\
+  !*** ./src/app/StartDialog.component.ts ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "StartDialog": () => (/* binding */ StartDialog)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/dialog */ 5758);
+
+
+/**
+ * @title Dialog with header, scrollable content and actions ---
+ */
+class StartDialog {
+    constructor() { }
+}
+StartDialog.ɵfac = function StartDialog_Factory(t) { return new (t || StartDialog)(); };
+StartDialog.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: StartDialog, selectors: [["app-dialog"]], decls: 20, vars: 1, consts: [["id", "instruction-dialog-container"], ["mat-dialog-title", ""], [1, "mat-typography"], ["align", "end"], ["mat-button", "", "cdkFocusInitial", "", 3, "mat-dialog-close"]], template: function StartDialog_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0)(1, "h2", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Bevor sie starten... ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "mat-dialog-content", 2)(4, "h3");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Herzlich willkommen zum Prototypen der \"Multi-Tabbing\"-Anwendung.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, " Auf der linken Seite finden Sie drei Tabs, welche Unterwasserkameras anzeigen. Auf der rechten Seite im oberen Bereich sind zwei Tabs verf\u00FCgbar, die Ihnen bei der Identifizierung von Tierarten behilflich sein k\u00F6nnen. Im unteren Bereich befindet sich ein weiterer Tab, der es Ihnen erm\u00F6glicht, Notizen zu speichern.\n");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, " Nutzen Sie die M\u00F6glichkeit, die Tabs der drei Kameras zu verschieben, um eine optimale Arbeitsumgebung zu schaffen.\n");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " Falls Probleme bei der Nutzung auftreten, empfehlen wir Ihnen, die Seite neu zu laden.\n");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, " Wenn Sie Tierarten identifizieren, haben Sie die M\u00F6glichkeit, diese in den Notizen festzuhalten. Wir bitten Sie, im Fragebogen Ihre identifizierten Tierarten anzugeben. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "p")(15, "b");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Bitte denken Sie daran, vor dem Schlie\u00DFen der Webseite Ihre Notizen zu kopieren.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "mat-dialog-actions", 3)(18, "button", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Ich habe verstanden");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("mat-dialog-close", true);
+    } }, directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__.MatDialogTitle, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__.MatDialogContent, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__.MatDialogActions, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__.MatDialogClose], encapsulation: 2 });
+
+
+/***/ }),
+
 /***/ 5041:
 /*!**********************************!*\
   !*** ./src/app/app.component.ts ***!
@@ -11,37 +65,285 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppComponent": () => (/* binding */ AppComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 3184);
-/* harmony import */ var src_docking_services_docking_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/docking/services/docking.service */ 4470);
-/* harmony import */ var _widgets_nav_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../widgets/nav.component */ 9420);
-/* harmony import */ var _docking_dockingLayout_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../docking/dockingLayout.component */ 3814);
+/* harmony import */ var golden_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! golden-layout */ 3869);
+/* harmony import */ var _StartDialog_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StartDialog.component */ 9550);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var src_docking_services_docking_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/docking/services/docking.service */ 4470);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ 5758);
+/* harmony import */ var _widgets_nav_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../widgets/nav.component */ 9420);
+/* harmony import */ var _docking_dockingLayout_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../docking/dockingLayout.component */ 3814);
+
+
+
 
 
 
 
 const _c0 = ["goldenLayoutHost"];
 class AppComponent {
-    constructor(dockingService) {
+    constructor(dockingService, dialog) {
         this.dockingService = dockingService;
+        this.dialog = dialog;
         this.title = 'prototype-iq2';
+        this.example = {
+            "root": {
+                "type": "row",
+                "content": [
+                    {
+                        "type": "stack",
+                        "content": [
+                            {
+                                "type": "component",
+                                "content": [],
+                                "size": 1,
+                                "sizeUnit": "fr",
+                                "minSizeUnit": "px",
+                                "id": "",
+                                "maximised": false,
+                                "showPopoutIcon": false,
+                                "isClosable": true,
+                                "reorderEnabled": true,
+                                "title": "Pazifik Kamera",
+                                "componentType": "vid",
+                                "componentState": {
+                                    "id": "a7016cf2-c776-61e6-aaf4-c4c11286bf22"
+                                }
+                            }
+                        ],
+                        "size": 15.86497677373964,
+                        "sizeUnit": "%",
+                        "minSizeUnit": "px",
+                        "id": "",
+                        "isClosable": true,
+                        "maximised": false,
+                        "activeItemIndex": 0
+                    },
+                    {
+                        "type": "stack",
+                        "content": [
+                            {
+                                "type": "component",
+                                "content": [],
+                                "size": 1,
+                                "sizeUnit": "fr",
+                                "minSizeUnit": "px",
+                                "id": "",
+                                "showPopoutIcon": false,
+                                "maximised": false,
+                                "isClosable": true,
+                                "reorderEnabled": true,
+                                "title": "Cayman Reef Süd Kamera",
+                                "componentType": "vid",
+                                "componentState": {
+                                    "id": "ea74a320-bd21-4c5d-abb6-051281fb6399"
+                                }
+                            }
+                        ],
+                        "size": 16.00353552285527,
+                        "sizeUnit": "%",
+                        "minSizeUnit": "px",
+                        "id": "",
+                        "isClosable": true,
+                        "maximised": false,
+                        "activeItemIndex": 0
+                    },
+                    {
+                        "type": "stack",
+                        "content": [
+                            {
+                                "type": "component",
+                                "content": [],
+                                "size": 1,
+                                "sizeUnit": "fr",
+                                "minSizeUnit": "px",
+                                "id": "",
+                                "maximised": false,
+                                "isClosable": true,
+                                "reorderEnabled": true,
+                                "title": "Indischer Ozean Kamera",
+                                "componentType": "vid",
+                                "componentState": {
+                                    "id": "8fc80a51-a9e8-561d-9dd8-623339f5a9c7"
+                                }
+                            }
+                        ],
+                        "size": 15.679955418502596,
+                        "sizeUnit": "%",
+                        "minSizeUnit": "px",
+                        "id": "",
+                        "isClosable": true,
+                        "maximised": false,
+                        "activeItemIndex": 0
+                    },
+                    {
+                        "type": "column",
+                        "content": [
+                            {
+                                "type": "stack",
+                                "content": [
+                                    {
+                                        "type": "component",
+                                        "content": [],
+                                        "size": 1,
+                                        "sizeUnit": "fr",
+                                        "minSizeUnit": "px",
+                                        "id": "",
+                                        "showPopoutIcon": false,
+                                        "maximised": false,
+                                        "isClosable": false,
+                                        "reorderEnabled": false,
+                                        "title": "Karibische Fische",
+                                        "componentType": "test",
+                                        "componentState": {
+                                            "id": "54c26490-390b-1157-1ae5-c52f29acb82d",
+                                            "componentName": "test",
+                                            "title": "my Tab",
+                                            "componentData": {
+                                                "myValue": "https://www.wikipedia.org"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "component",
+                                        "content": [],
+                                        "size": 1,
+                                        "sizeUnit": "fr",
+                                        "minSizeUnit": "px",
+                                        "id": "",
+                                        "maximised": false,
+                                        "isClosable": false,
+                                        "reorderEnabled": false,
+                                        "title": "Indischer Ozean Lexikon",
+                                        "componentType": "test",
+                                        "componentState": {
+                                            "id": "22be6a6e-d978-c3b6-b63b-b61ece4882c3",
+                                            "componentName": "test",
+                                            "title": "my Tab",
+                                            "componentData": {
+                                                "myValue": "https://www.wikipedia.org"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "size": 50,
+                                "sizeUnit": "%",
+                                "minSizeUnit": "px",
+                                "id": "",
+                                "isClosable": false,
+                                "maximised": false,
+                                "activeItemIndex": 0
+                            },
+                            {
+                                "type": "stack",
+                                "content": [
+                                    {
+                                        "type": "component",
+                                        "content": [],
+                                        "size": 1,
+                                        "sizeUnit": "fr",
+                                        "minSizeUnit": "px",
+                                        "id": "",
+                                        "maximised": false,
+                                        "isClosable": false,
+                                        "reorderEnabled": false,
+                                        "title": "Online Notizblock",
+                                        "componentType": "test",
+                                        "componentState": {
+                                            "id": "eea2d6f1-f39a-eb1d-388a-f63af24b8356",
+                                            "componentName": "test",
+                                            "title": "my Tab",
+                                            "componentData": {
+                                                "myValue": "https://golden-layout.com/"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "size": 50,
+                                "sizeUnit": "%",
+                                "minSizeUnit": "px",
+                                "id": "",
+                                "isClosable": true,
+                                "maximised": false,
+                                "activeItemIndex": 0
+                            }
+                        ],
+                        "size": 52.45153228490249,
+                        "sizeUnit": "%",
+                        "minSizeUnit": "px",
+                        "id": "",
+                        "isClosable": true
+                    }
+                ],
+                "size": 1,
+                "sizeUnit": "fr",
+                "minSizeUnit": "px",
+                "id": "",
+                "isClosable": true
+            },
+            "openPopouts": [],
+            "settings": {
+                "constrainDragToContainer": true,
+                "reorderEnabled": true,
+                "popoutWholeStack": false,
+                "blockedPopoutsThrowError": true,
+                "closePopoutsOnUnload": true,
+                "responsiveMode": "none",
+                "tabOverlapAllowance": 0,
+                "reorderOnTabMenuClick": true,
+                "tabControlOffset": 10,
+                "popInOnClose": false
+            },
+            "dimensions": {
+                "borderWidth": 5,
+                "borderGrabWidth": 5,
+                "defaultMinItemHeight": 0,
+                "defaultMinItemHeightUnit": "px",
+                "defaultMinItemWidth": 10,
+                "defaultMinItemWidthUnit": "px",
+                "headerHeight": 20,
+                "dragProxyWidth": 300,
+                "dragProxyHeight": 200
+            },
+            "header": {
+                "show": "top",
+                "popout": "open in new window",
+                "dock": "dock",
+                "close": "close",
+                "maximise": "maximise",
+                "minimise": "minimise",
+                "tabDropdown": "additional tabs"
+            },
+            "resolved": true
+        };
     }
     ngAfterViewInit() {
+        this.openDialog();
         setTimeout(() => {
             this._goldenLayoutHostComponent.initialise();
             this._goldenLayoutHostComponent.setVirtualActive(false);
             this.dockingService.setCurrentDockingLayout(this._goldenLayoutHostComponent);
+            let layout;
+            layout = golden_layout__WEBPACK_IMPORTED_MODULE_4__.LayoutConfig.fromResolved(this.example);
+            this.dockingService.getCurrentDockingLayout().loadLayout(layout);
+            this.dockingService;
         }, 0);
     }
+    openDialog() {
+        const dialogRef = this.dialog.open(_StartDialog_component__WEBPACK_IMPORTED_MODULE_0__.StartDialog);
+        dialogRef.afterClosed().subscribe(result => {
+            console.log(`Dialog result: ${result}`);
+        });
+    }
 }
-AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_docking_services_docking_service__WEBPACK_IMPORTED_MODULE_0__.DockingService)); };
-AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], viewQuery: function AppComponent_Query(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_c0, 5);
+AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](src_docking_services_docking_service__WEBPACK_IMPORTED_MODULE_1__.DockingService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__.MatDialog)); };
+AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], viewQuery: function AppComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵviewQuery"](_c0, 5);
     } if (rf & 2) {
         let _t;
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵloadQuery"]()) && (ctx._goldenLayoutHostComponent = _t.first);
-    } }, decls: 3, vars: 0, consts: [["goldenLayoutHost", ""]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "app-navigation")(1, "app-golden-layout-host", null, 0);
-    } }, directives: [_widgets_nav_component__WEBPACK_IMPORTED_MODULE_1__.NavComponent, _docking_dockingLayout_component__WEBPACK_IMPORTED_MODULE_2__.DockingLayoutComponent], styles: ["[_nghost-%COMP%] {\r\n    height: 100%;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7SUFDWCxhQUFhO0lBQ2Isc0JBQXNCO0VBQ3hCIiwiZmlsZSI6ImFwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICB9Il19 */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵloadQuery"]()) && (ctx._goldenLayoutHostComponent = _t.first);
+    } }, decls: 4, vars: 0, consts: [["goldenLayoutHost", ""], ["id", "opaqueOverlay", 2, "width", "100vw", "height", "100vh", "position", "fixed", "top", "0px", "left", "0px", "background", "black", "opacity", "0", "display", "none"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](0, "app-navigation")(1, "app-golden-layout-host", null, 0)(3, "div", 1);
+    } }, directives: [_widgets_nav_component__WEBPACK_IMPORTED_MODULE_2__.NavComponent, _docking_dockingLayout_component__WEBPACK_IMPORTED_MODULE_3__.DockingLayoutComponent], styles: ["[_nghost-%COMP%] {\r\n    height: 100%;\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksWUFBWTtJQUNaLFdBQVc7SUFDWCxhQUFhO0lBQ2Isc0JBQXNCO0VBQ3hCIiwiZmlsZSI6ImFwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICB9Il19 */"] });
 
 
 /***/ }),
@@ -56,15 +358,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/platform-browser */ 318);
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/platform-browser/animations */ 3598);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/forms */ 587);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser */ 318);
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/platform-browser/animations */ 3598);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/forms */ 587);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ 5139);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/toolbar */ 9946);
-/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/progress-spinner */ 4742);
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/input */ 3365);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/router */ 2816);
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/toolbar */ 9946);
+/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/progress-spinner */ 4742);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/input */ 3365);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/router */ 2816);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ 5041);
 /* harmony import */ var _widgets_nav_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../widgets/nav.component */ 9420);
 /* harmony import */ var _docking_dockingLayout_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../docking/dockingLayout.component */ 3814);
@@ -73,7 +375,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_docking_services_docking_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/docking/services/docking.service */ 4470);
 /* harmony import */ var src_docking_dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/docking/dockingWidgets/empty.component */ 1994);
 /* harmony import */ var src_docking_dockingWidgets_test2_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/docking/dockingWidgets/test2.component */ 9893);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var src_docking_dockingWidgets_video_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/docking/dockingWidgets/video.component */ 9700);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/dialog */ 5758);
+/* harmony import */ var _StartDialog_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./StartDialog.component */ 9550);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/core */ 3184);
+
+
+
 
 
 
@@ -103,7 +411,9 @@ const COMPONENTS = [
     src_docking_dockingWidgets_test_component__WEBPACK_IMPORTED_MODULE_5__.TestComponent,
     src_docking_dockingWidgets_test2_component__WEBPACK_IMPORTED_MODULE_8__.TestComponent2,
     _docking_dockingLayout_component__WEBPACK_IMPORTED_MODULE_3__.DockingLayoutComponent,
-    src_docking_dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_7__.EmptyComponent
+    src_docking_dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_7__.EmptyComponent,
+    src_docking_dockingWidgets_video_component__WEBPACK_IMPORTED_MODULE_9__.VideoComponent,
+    _StartDialog_component__WEBPACK_IMPORTED_MODULE_10__.StartDialog
 ];
 /**
  * Is required for golden layout.
@@ -121,32 +431,42 @@ const COMPONENTS = [
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent] });
-AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineInjector"]({ providers: [src_docking_services_docking_service__WEBPACK_IMPORTED_MODULE_6__.DockingService], imports: [[
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_10__.BrowserModule,
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_11__.BrowserAnimationsModule,
-            _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_12__.MatToolbarModule,
-            _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_13__.MatProgressSpinnerModule,
-            _angular_material_input__WEBPACK_IMPORTED_MODULE_14__.MatInputModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_15__.FormsModule,
-            _angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterModule.forRoot(_routes__WEBPACK_IMPORTED_MODULE_4__.appRoutes)
+AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent] });
+AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineInjector"]({ providers: [src_docking_services_docking_service__WEBPACK_IMPORTED_MODULE_6__.DockingService], imports: [[
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__.BrowserModule,
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__.BrowserAnimationsModule,
+            _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_14__.MatToolbarModule,
+            _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_15__.MatProgressSpinnerModule,
+            _angular_material_input__WEBPACK_IMPORTED_MODULE_16__.MatInputModule,
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialogModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_18__.FormsModule,
+            _angular_router__WEBPACK_IMPORTED_MODULE_19__.RouterModule.forRoot(_routes__WEBPACK_IMPORTED_MODULE_4__.appRoutes)
+            // VgCoreModule,
+            // VgControlsModule,
+            // VgOverlayPlayModule,
+            // VgBufferingModule
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent,
         _widgets_nav_component__WEBPACK_IMPORTED_MODULE_2__.NavComponent,
         src_docking_dockingWidgets_test_component__WEBPACK_IMPORTED_MODULE_5__.TestComponent,
         src_docking_dockingWidgets_test2_component__WEBPACK_IMPORTED_MODULE_8__.TestComponent2,
         _docking_dockingLayout_component__WEBPACK_IMPORTED_MODULE_3__.DockingLayoutComponent,
-        src_docking_dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_7__.EmptyComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_10__.BrowserModule,
-        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_11__.BrowserAnimationsModule,
-        _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_12__.MatToolbarModule,
-        _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_13__.MatProgressSpinnerModule,
-        _angular_material_input__WEBPACK_IMPORTED_MODULE_14__.MatInputModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_15__.FormsModule, _angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterModule], exports: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent,
+        src_docking_dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_7__.EmptyComponent,
+        src_docking_dockingWidgets_video_component__WEBPACK_IMPORTED_MODULE_9__.VideoComponent,
+        _StartDialog_component__WEBPACK_IMPORTED_MODULE_10__.StartDialog], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__.BrowserModule,
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__.BrowserAnimationsModule,
+        _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_14__.MatToolbarModule,
+        _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_15__.MatProgressSpinnerModule,
+        _angular_material_input__WEBPACK_IMPORTED_MODULE_16__.MatInputModule,
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__.MatDialogModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_18__.FormsModule, _angular_router__WEBPACK_IMPORTED_MODULE_19__.RouterModule], exports: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent,
         _widgets_nav_component__WEBPACK_IMPORTED_MODULE_2__.NavComponent,
         src_docking_dockingWidgets_test_component__WEBPACK_IMPORTED_MODULE_5__.TestComponent,
         src_docking_dockingWidgets_test2_component__WEBPACK_IMPORTED_MODULE_8__.TestComponent2,
         _docking_dockingLayout_component__WEBPACK_IMPORTED_MODULE_3__.DockingLayoutComponent,
-        src_docking_dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_7__.EmptyComponent] }); })();
+        src_docking_dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_7__.EmptyComponent,
+        src_docking_dockingWidgets_video_component__WEBPACK_IMPORTED_MODULE_9__.VideoComponent,
+        _StartDialog_component__WEBPACK_IMPORTED_MODULE_10__.StartDialog] }); })();
 
 
 /***/ }),
@@ -618,12 +938,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "DockingLayoutComponent": () => (/* binding */ DockingLayoutComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 3184);
-/* harmony import */ var golden_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! golden-layout */ 237);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var golden_layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! golden-layout */ 237);
 /* harmony import */ var _dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dockingWidgets/empty.component */ 1994);
 /* harmony import */ var _dockingWidgets_test_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dockingWidgets/test.component */ 5860);
 /* harmony import */ var _dockingWidgets_test2_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dockingWidgets/test2.component */ 9893);
-/* harmony import */ var _services_docking_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/docking.service */ 4470);
+/* harmony import */ var _dockingWidgets_video_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dockingWidgets/video.component */ 9700);
+/* harmony import */ var _services_docking_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/docking.service */ 4470);
+
 
 
 
@@ -647,7 +969,8 @@ class DockingLayoutComponent {
         this._goldenLayoutElement = this._elRef.nativeElement;
         this.dockingService.registerComponentType("test", _dockingWidgets_test_component__WEBPACK_IMPORTED_MODULE_1__.TestComponent);
         this.dockingService.registerComponentType("test2", _dockingWidgets_test2_component__WEBPACK_IMPORTED_MODULE_2__.TestComponent2);
-        this.dockingService.registerComponentType(_dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_0__.EmptyComponent.componentTypeName, _dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_0__.EmptyComponent);
+        this.dockingService.registerComponentType("Empty", _dockingWidgets_empty_component__WEBPACK_IMPORTED_MODULE_0__.EmptyComponent);
+        this.dockingService.registerComponentType("vid", _dockingWidgets_video_component__WEBPACK_IMPORTED_MODULE_3__.VideoComponent);
     }
     get goldenLayout() { return this._goldenLayout; }
     get virtualActive() { return this._virtualActive; }
@@ -657,12 +980,13 @@ class DockingLayoutComponent {
         this._goldenLayout.destroy();
     }
     initialise() {
-        this._goldenLayout = new golden_layout__WEBPACK_IMPORTED_MODULE_4__.GoldenLayout(this._goldenLayoutElement, this._goldenLayoutBindComponentEventListener, this._goldenLayoutUnbindComponentEventListener);
+        this._goldenLayout = new golden_layout__WEBPACK_IMPORTED_MODULE_5__.GoldenLayout(this._goldenLayoutElement, this._goldenLayoutBindComponentEventListener, this._goldenLayoutUnbindComponentEventListener);
         this._goldenLayout.resizeWithContainerAutomatically = true;
         this._goldenLayout.beforeVirtualRectingEvent = (count) => this.handleBeforeVirtualRectingEvent(count);
         if (this._goldenLayout.isSubWindow) {
             this._goldenLayout.checkAddDefaultPopinButton();
         }
+        console.log(this._goldenLayout.layoutConfig.settings);
     }
     setVirtualActive(value) {
         this._goldenLayout.clear();
@@ -773,19 +1097,16 @@ class DockingLayoutComponent {
         component.setZIndex(defaultZIndex);
     }
     ngAfterViewInit() {
-        this._goldenLayout.on('__all', () => {
-            console.log("gl event");
-        });
     }
 }
-DockingLayoutComponent.ɵfac = function DockingLayoutComponent_Factory(t) { return new (t || DockingLayoutComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_5__.ApplicationRef), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_5__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_services_docking_service__WEBPACK_IMPORTED_MODULE_3__.DockingService)); };
-DockingLayoutComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({ type: DockingLayoutComponent, selectors: [["app-golden-layout-host"]], viewQuery: function DockingLayoutComponent_Query(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵviewQuery"](_c0, 7, _angular_core__WEBPACK_IMPORTED_MODULE_5__.ViewContainerRef);
+DockingLayoutComponent.ɵfac = function DockingLayoutComponent_Factory(t) { return new (t || DockingLayoutComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_6__.ApplicationRef), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_6__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_services_docking_service__WEBPACK_IMPORTED_MODULE_4__.DockingService)); };
+DockingLayoutComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineComponent"]({ type: DockingLayoutComponent, selectors: [["app-golden-layout-host"]], viewQuery: function DockingLayoutComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵviewQuery"](_c0, 7, _angular_core__WEBPACK_IMPORTED_MODULE_6__.ViewContainerRef);
     } if (rf & 2) {
         let _t;
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵloadQuery"]()) && (ctx._componentViewContainerRef = _t.first);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵloadQuery"]()) && (ctx._componentViewContainerRef = _t.first);
     } }, decls: 2, vars: 0, consts: [["componentViewContainer", ""]], template: function DockingLayoutComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](0, DockingLayoutComponent_ng_template_0_Template, 0, 0, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplateRefExtractor"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](0, DockingLayoutComponent_ng_template_0_Template, 0, 0, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplateRefExtractor"]);
     } }, styles: ["[_nghost-%COMP%] {\n      height: 100%;\n      width: 100%;\n      padding: 0;\n      position: relative;\n    }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRvY2tpbmdMYXlvdXQuY29tcG9uZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7SUFDSTtNQUNFLFlBQVk7TUFDWixXQUFXO01BQ1gsVUFBVTtNQUNWLGtCQUFrQjtJQUNwQiIsImZpbGUiOiJkb2NraW5nTGF5b3V0LmNvbXBvbmVudC50cyIsInNvdXJjZXNDb250ZW50IjpbIlxuICAgIDpob3N0IHtcbiAgICAgIGhlaWdodDogMTAwJTtcbiAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgcGFkZGluZzogMDtcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB9XG4gICAgIl19 */"] });
 
 
@@ -811,7 +1132,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * TestComponent to show functionality.
+ * TestComponent to show functionality. sync
  * Extends DcokingComponent so it can be docked in DockingLayoutComponnet.
  */
 class EmptyComponent extends src_docking_DockingComponent__WEBPACK_IMPORTED_MODULE_0__.DockingComponent {
@@ -857,9 +1178,6 @@ EmptyComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__[
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](1, "img", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     } }, encapsulation: 2 });
-(function (EmptyComponent) {
-    EmptyComponent.componentTypeName = 'Empty';
-})(EmptyComponent || (EmptyComponent = {}));
 
 
 /***/ }),
@@ -875,13 +1193,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "TestComponent": () => (/* binding */ TestComponent)
 /* harmony export */ });
 /* harmony import */ var src_docking_DockingComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/docking/DockingComponent */ 6643);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 3184);
-/* harmony import */ var src_dataServices_data_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/dataServices/data.service */ 8586);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ 5139);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var src_dataServices_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/dataServices/data.service */ 8586);
+
 
 
 
 
 const _c0 = ["iframe"];
+window["$"] = jquery__WEBPACK_IMPORTED_MODULE_1__;
 /**
  * TestComponent to show functionality.
  * Extends DcokingComponent so it can be docked in DockingLayoutComponnet.
@@ -904,10 +1226,12 @@ class TestComponent extends src_docking_DockingComponent__WEBPACK_IMPORTED_MODUL
                 myValue: 'None'
             }
         };
+        this.mouseDown = false;
         console.log(this.container);
         if (this.container.state !== null) {
             // get IDockingComponentConfig by th given id in goldenlayout state
             this.componentConfig = dataService.getIDockingComponentConfigById(container.state["id"].toString());
+            this.container.setTitle(this.componentConfig.title);
             // init
             this.initInLayout(this.componentConfig);
             // set title
@@ -918,41 +1242,76 @@ class TestComponent extends src_docking_DockingComponent__WEBPACK_IMPORTED_MODUL
         this.componentConfig = myComponentConfig;
     }
     ngAfterViewInit() {
-        console.log(this.componentConfig);
-        this.iframe.nativeElement.src = this.componentConfig.componentData.myValue;
-        this.container.on('__all', () => {
-            const elements = document.querySelectorAll('.lm_drag_handle');
-            for (let i = 0; i < elements.length; i++) {
-                const element = elements[i];
-                // do something with the element
-                element.addEventListener('mouseover', (event) => {
-                    // your code here
-                    console.log("hover über drag handle");
-                    this.iframe.nativeElement.src = null;
-                });
+        // Make sure that - as long as the mouse is pressed on the drag handles - the overlay does not get toggled
+        jquery__WEBPACK_IMPORTED_MODULE_1__(document.body).on("mousedown", ".lm_drag_handle", (event) => {
+            // console.log("Down");
+            this.mouseDown = true;
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_1__(document.body).on("mouseup", ".lm_drag_handle", (event) => {
+            // console.log("Up");
+            this.mouseDown = false;
+        });
+        // Activate the overlay, when entering the drag handles
+        jquery__WEBPACK_IMPORTED_MODULE_1__(document.body).on("mouseenter", ".lm_drag_handle", (event) => {
+            if (this.mouseDown === false) {
+                // console.log("Entering");
+                document.getElementById("opaqueOverlay").style.display = "block";
             }
         });
-        this.container.on('resize', () => {
-            this.iframe.nativeElement.src = this.componentConfig.componentData.myValue;
+        // Deactivate the overlay, when leaving the drag handles
+        jquery__WEBPACK_IMPORTED_MODULE_1__(document.body).on("mouseleave", ".lm_drag_handle", (event) => {
+            if (this.mouseDown === false) {
+                // console.log("Leaving");
+                document.getElementById("opaqueOverlay").style.display = "none";
+            }
         });
+        console.log(this.iframe.nativeElement);
+        console.log(this.iframe);
+        this.iframe.nativeElement.src = this.componentConfig.componentData.myValue;
+        // this.container.on('__all', () => {
+        //   const elements = document.querySelectorAll('.lm_drag_handle');
+        //   for (let i = 0; i < elements.length; i++) {
+        //     const element = elements[i];
+        //     // do something with the element
+        //     element.addEventListener('mouseenter', (event) => {
+        //       // your code here
+        //       // console.log("hover über drag handle")
+        //       // this.iframe.nativeElement.src = null;
+        //       console.log("Entering");
+        //       document.getElementById("opaqueOverlay").style.display = "block";
+        //     });
+        //     element.addEventListener('mouseleave', (event) => {
+        //       // your code here
+        //       // console.log("hover über drag handle")
+        //       // this.iframe.nativeElement.src = null;
+        //       console.log("Leaving");
+        //       document.getElementById("opaqueOverlay").style.display = "none";
+        //     });
+        //   }
+        // });
+        // this.container.on('resize', () => {
+        //   // console.log("RESIZE");
+        //   // // this.iframe.nativeElement.src = this.componentConfig.componentData.myValue;
+        //   // document.getElementById("opaqueOverlay").style.display = "none";
+        // });
     }
     getCurrentComponentConfig() {
         return this.componentConfig;
     }
 }
-TestComponent.ɵfac = function TestComponent_Factory(t) { return new (t || TestComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_dataServices_data_service__WEBPACK_IMPORTED_MODULE_1__.DataService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_docking_DockingComponent__WEBPACK_IMPORTED_MODULE_0__.DockingComponent.GoldenLayoutContainerInjectionToken), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_2__.ElementRef)); };
-TestComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: TestComponent, selectors: [["app-test"]], viewQuery: function TestComponent_Query(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵviewQuery"](_c0, 5);
+TestComponent.ɵfac = function TestComponent_Factory(t) { return new (t || TestComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_dataServices_data_service__WEBPACK_IMPORTED_MODULE_2__.DataService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_docking_DockingComponent__WEBPACK_IMPORTED_MODULE_0__.DockingComponent.GoldenLayoutContainerInjectionToken), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__.ElementRef)); };
+TestComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: TestComponent, selectors: [["app-test"]], viewQuery: function TestComponent_Query(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵviewQuery"](_c0, 5);
     } if (rf & 2) {
         let _t;
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵloadQuery"]()) && (ctx.iframe = _t.first);
-    } }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵInheritDefinitionFeature"]], decls: 3, vars: 1, consts: [[2, "height", "100%", "width", "100%"], ["height", "100%", "width", "100%"], ["iframe", ""]], template: function TestComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](1, "iframe", 1, 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵloadQuery"]()) && (ctx.iframe = _t.first);
+    } }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵInheritDefinitionFeature"]], decls: 3, vars: 1, consts: [[2, "height", "100%", "width", "100%"], ["height", "100%", "width", "100%"], ["iframe", ""]], template: function TestComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](1, "iframe", 1, 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵattribute"]("disabled", ctx.isDisabled);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵattribute"]("disabled", ctx.isDisabled);
     } }, encapsulation: 2 });
 
 
@@ -1050,6 +1409,119 @@ TestComponent2.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__[
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵattribute"]("disabled", ctx.isDisabled);
+    } }, encapsulation: 2 });
+
+
+/***/ }),
+
+/***/ 9700:
+/*!*******************************************************!*\
+  !*** ./src/docking/dockingWidgets/video.component.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "VideoComponent": () => (/* binding */ VideoComponent)
+/* harmony export */ });
+/* harmony import */ var src_docking_DockingComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/docking/DockingComponent */ 6643);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ 5139);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var src_dataServices_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/dataServices/data.service */ 8586);
+
+
+
+
+
+window["$"] = jquery__WEBPACK_IMPORTED_MODULE_1__;
+/**
+ * TestComponent to show functionality.
+ * Extends DcokingComponent so it can be docked in DockingLayoutComponnet.
+ */
+class VideoComponent extends src_docking_DockingComponent__WEBPACK_IMPORTED_MODULE_0__.DockingComponent {
+    constructor(dataService, container, elRef) {
+        super(dataService, container, elRef);
+        this.dataService = dataService;
+        this.container = container;
+        this.isDisabled = true;
+        /**
+         * Default initialization.
+         * Adds myValue to componentData
+         */
+        this.componentConfig = {
+            id: '0',
+            componentName: 'test',
+            title: 'defaultTitle',
+            componentData: {
+                myValue: 'None'
+            }
+        };
+        this.mouseDown = false;
+        console.log(this.container);
+        if (this.container.state !== null) {
+            // get IDockingComponentConfig by th given id in goldenlayout state
+            this.componentConfig = dataService.getIDockingComponentConfigById(container.state["id"].toString());
+            // init
+            this.initInLayout(this.componentConfig);
+            this.container.setTitle(this.componentConfig.title);
+            // set title
+            //this.container.setTitle(this.componentConfig.title);
+        }
+    }
+    initInLayout(myComponentConfig) {
+        this.componentConfig = myComponentConfig;
+        this.src = this.componentConfig.componentData.myValue;
+        console.log(this.container); //.controlsContainer.find( '.lm_popout').hide();
+    }
+    ngAfterViewInit() {
+        // Make sure that - as long as the mouse is pressed on the drag handles - the overlay does not get toggled
+        jquery__WEBPACK_IMPORTED_MODULE_1__(document.body).on("mousedown", ".lm_drag_handle", (event) => {
+            // console.log("Down");
+            this.mouseDown = true;
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_1__(document.body).on("mouseup", ".lm_drag_handle", (event) => {
+            // console.log("Up");
+            this.mouseDown = false;
+        });
+        // Activate the overlay, when entering the drag handles
+        jquery__WEBPACK_IMPORTED_MODULE_1__(document.body).on("mouseenter", ".lm_drag_handle", (event) => {
+            if (this.mouseDown === false) {
+                // console.log("Entering");
+                document.getElementById("opaqueOverlay").style.display = "block";
+            }
+        });
+        // Deactivate the overlay, when leaving the drag handles
+        jquery__WEBPACK_IMPORTED_MODULE_1__(document.body).on("mouseleave", ".lm_drag_handle", (event) => {
+            if (this.mouseDown === false) {
+                // console.log("Leaving");
+                document.getElementById("opaqueOverlay").style.display = "none";
+            }
+        });
+    }
+    getCurrentComponentConfig() {
+        return this.componentConfig;
+    }
+    // Instantiate a Video.js player OnInit
+    ngOnInit() {
+        // this.player = videojs(this.videoPlayerRef.nativeElement, this.options, function onPlayerReady() {
+        //   console.log('onPlayerReady', this);
+        // });
+    }
+    ngOnDestroy() {
+    }
+}
+VideoComponent.ɵfac = function VideoComponent_Factory(t) { return new (t || VideoComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_dataServices_data_service__WEBPACK_IMPORTED_MODULE_2__.DataService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_docking_DockingComponent__WEBPACK_IMPORTED_MODULE_0__.DockingComponent.GoldenLayoutContainerInjectionToken), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__.ElementRef)); };
+VideoComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: VideoComponent, selectors: [["app-vid"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵInheritDefinitionFeature"]], decls: 4, vars: 2, consts: [[2, "height", "100%", "width", "100%"], ["autoplay", "", "loop", "", 2, "width", "100%", "height", "100%", 3, "muted"], ["type", "video/mp4", 3, "src"]], template: function VideoComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0)(1, "video", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "source", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](3, " Browser not supported ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("muted", "muted");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpropertyInterpolate"]("src", ctx.src, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsanitizeUrl"]);
     } }, encapsulation: 2 });
 
 
@@ -1286,8 +1758,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 2816);
 /* harmony import */ var src_docking_services_docking_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/docking/services/docking.service */ 4470);
 /* harmony import */ var src_dataServices_localData_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/dataServices/localData.service */ 5070);
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/toolbar */ 9946);
-
 
 
 
@@ -1457,40 +1927,7 @@ class NavComponent {
     }
 }
 NavComponent.ɵfac = function NavComponent_Factory(t) { return new (t || NavComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_docking_services_docking_service__WEBPACK_IMPORTED_MODULE_0__.DockingService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_dataServices_localData_service__WEBPACK_IMPORTED_MODULE_1__.LocalDataService)); };
-NavComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: NavComponent, selectors: [["app-navigation"]], decls: 26, vars: 0, consts: [["color", "primary"], [2, "margin-left", "3em"], [1, "menu_links", 3, "click"]], template: function NavComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "mat-toolbar", 0)(1, "mat-toolbar-row")(2, "span", 1)(3, "a", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function NavComponent_Template_a_click_3_listener() { return ctx.addTab("https://www.youtube.com/embed/-abgQPOGkG0"); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](4, "YouTube");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](5, "span", 1)(6, "a", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function NavComponent_Template_a_click_6_listener() { return ctx.addTab("https://www.wikipedia.org"); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](7, "Wikipedia");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](8, "span", 1)(9, "a", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function NavComponent_Template_a_click_9_listener() { return ctx.addTab("https://www.openstreetmap.de/karte/"); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](10, "OSM");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](11, "span", 1)(12, "a", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function NavComponent_Template_a_click_12_listener() { return ctx.addTab("https://www.hs-ruhrwest.de"); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](13, "HRW");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](14, "span", 1)(15, "a", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function NavComponent_Template_a_click_15_listener() { return ctx.addTab("https://golden-layout.com/"); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](16, "GoldenLayout");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](17, "span", 1)(18, "a", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function NavComponent_Template_a_click_18_listener() { return ctx.addTab("https://www.facebook.com"); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](19, "Facebook");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](20, "span", 1)(21, "a", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function NavComponent_Template_a_click_21_listener() { return ctx.addTab("https://www.google.de"); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](22, "Google");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](23, "span", 1)(24, "a", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function NavComponent_Template_a_click_24_listener() { return ctx.saveDockingLayout(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](25, "Save Dockinglayout");
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()()();
-    } }, directives: [_angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__.MatToolbar, _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__.MatToolbarRow], styles: ["a.menu_links[_ngcontent-%COMP%] {\n            cursor: pointer;\n          }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5hdi5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkNBQUM7WUFDVyxlQUFlO1VBQ2pCIiwiZmlsZSI6Im5hdi5jb21wb25lbnQudHMiLCJzb3VyY2VzQ29udGVudCI6WyIgYS5tZW51X2xpbmtzIHtcbiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgICB9Il19 */"] });
+NavComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: NavComponent, selectors: [["app-navigation"]], decls: 0, vars: 0, template: function NavComponent_Template(rf, ctx) { }, styles: ["a.menu_links[_ngcontent-%COMP%] {\n            cursor: pointer;\n          }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5hdi5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkNBQUM7WUFDVyxlQUFlO1VBQ2pCIiwiZmlsZSI6Im5hdi5jb21wb25lbnQudHMiLCJzb3VyY2VzQ29udGVudCI6WyIgYS5tZW51X2xpbmtzIHtcbiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICAgICAgICB9Il19 */"] });
 
 
 /***/ }),
@@ -1501,7 +1938,7 @@ NavComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["�
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('[{"id":"4711","componentName":"test","title":"4711 Tab","componentData":{"myValue":"https://www.wikipedia.org"}},{"id":"f07067a6-1673-2ff7-0c92-b19d5279fcdc","componentName":"test","title":"my Tab","componentData":{"myValue":"https://www.youtube.com/embed/-abgQPOGkG0"}},{"id":"tjuioya6-8673-iff7-dc9h-sd9d5272tcdf","componentName":"test","title":"my Tab","componentData":{"myValue":"https://www.hochschule-ruhr-west.de/"}},{"id":"a89de9b1-9432-f338-c113-1c36ba31a2a6","componentName":"test","title":"my Tab","componentData":{"myValue":"https://www.openstreetmap.de/karte/"}},{"id":"a7016cf2-c776-61e6-aaf4-c4c11286bf22","componentName":"test","title":"my Tab","componentData":{"myValue":"https://www.openstreetmap.de/karte/"}}]');
+module.exports = JSON.parse('[{"id":"ea74a320-bd21-4c5d-abb6-051281fb6399","componentName":"vid","title":"Kamera - 2","componentData":{"myValue":"../../assets/vids/AtlanticGruntCaymanReef.mp4"}},{"id":"1f8e4760-b661-cf59-20b2-9bdcf1a5fc60","componentName":"vid","title":"Cayman Reef Nord Kamera","componentData":{"myValue":"../../assets/vids/BarracudaCaymanReef.mp4"}},{"id":"8fc80a51-a9e8-561d-9dd8-623339f5a9c7","componentName":"vid","title":"Kamera - 3","componentData":{"myValue":"../../assets/vids/MantaRay.mp4"}},{"id":"f408374b-c07d-a176-bc16-c6e9af8e02be","componentName":"test","title":"4","componentData":{"myValue":"https://www.openstreetmap.de/karte/"}},{"id":"afc2ae2c-79a6-5122-83a2-8b551dcc936c","componentName":"test","title":"Meerwasser Lexikon","componentData":{"myValue":"https://www.meerwasser-lexikon.de/"}},{"id":"22be6a6e-d978-c3b6-b63b-b61ece4882c3","componentName":"test","title":"Mittelmeerfische Wiki","componentData":{"myValue":"https://de.wikipedia.org/wiki/Liste_der_Mittelmeerfische"}},{"id":"54c26490-390b-1157-1ae5-c52f29acb82d","componentName":"test","title":"Karibische Fische","componentData":{"myValue":"https://www.inaturalist.org/projects/marine-fishes-of-the-caribbean?tab=species"}},{"id":"eea2d6f1-f39a-eb1d-388a-f63af24b8356","componentName":"test","title":"Notizblock","componentData":{"myValue":"https://onlinenotizen.de/"}},{"id":"a7016cf2-c776-61e6-aaf4-c4c11286bf22","componentName":"vid","title":"Kamera - 1","componentData":{"myValue":"../../assets/vids/pacificOctopus.mp4"}}]');
 
 /***/ }),
 
